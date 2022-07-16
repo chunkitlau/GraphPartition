@@ -17,6 +17,10 @@ map
 -
 algorithm
 -
+thread
+-
+mutex
+-
 utils.hpp
 ../include/utils.hpp
 
@@ -45,6 +49,10 @@ sys/stat.h
 -
 sys/types.h
 -
+
+/mnt/d/Repositories/GraphPartition/src/graph.cpp
+graph.hpp
+/mnt/d/Repositories/GraphPartition/src/graph.hpp
 
 /mnt/d/Repositories/GraphPartition/src/partition.cpp
 partition.hpp

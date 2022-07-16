@@ -39,6 +39,7 @@ std::vector<std::string> Split(std::string &str, const std::string &pattern);
 // Write metadata to file
 void WriteMetadata(const std::string &output_folder, const std::pair<std::string,std::string > &metadata_header, const std::vector<std::pair<std::string,int> > &metadata);
 
+// Write partitions to file
 void WritePartitions(const std::string &output_folder, const std::vector<Partition> &partitions);
 
 #endif

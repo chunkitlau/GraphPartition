@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/partition.dir/src/partition.cpp.o  -o partition  -Wl,-rpath,/mnt/d/Repositories/GraphPartition/build libgraphPartition.so 
+/usr/bin/c++  -pthread   CMakeFiles/partition.dir/src/partition.cpp.o  -o partition  -Wl,-rpath,/mnt/d/Repositories/GraphPartition/build libgraphPartition.so 

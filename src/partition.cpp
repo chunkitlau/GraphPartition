@@ -24,7 +24,7 @@ std::vector<Partition> AssignBlock(const std::vector<Block> &blocks, int partiti
       }
     }
     partitions[x].AddBlock(blocks[i]);
-    if (log_level >= debug) printf("DEBUG: assign block %d to partition %d\n", i, x);
+    if (log_level >= debug) printf("DEBUG: assign block %d to partition %d block size %d\n", i, x, blocks[i].MyNodeSize());
 	}
   return partitions;
 }
@@ -42,6 +42,7 @@ std::vector<std::pair<std::string,int> > GenerateMetadata(std::vector<Partition>
 
 // main function
 int main(int argc,char *argv[]) {
+  printf("log level = %d\n", log_level);
   // Check the validity of command line arguments
   if (argc < 6) {
     printf("Command: ./partition input_folder output_folder partition_num alpha beta gamma");

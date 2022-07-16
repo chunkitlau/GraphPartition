@@ -1,8 +1,8 @@
 id:int64	feature:string
-1	beijing:1:s2:11:0.1:0.5
-3	shanghai:3:s2:13:0.1:0.5
-6	shanghai:3:s2:13:0.1:0.5
-14	shanghai:3:s2:13:0.1:0.5
 2	hangzhou:2:s2:12:0.1:0.5
+3	shanghai:3:s2:13:0.1:0.5
 10	shanghai:3:s2:13:0.1:0.5
 11	shanghai:3:s2:13:0.1:0.5
+1	beijing:1:s2:11:0.1:0.5
+6	shanghai:3:s2:13:0.1:0.5
+14	shanghai:3:s2:13:0.1:0.5

@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_STANDARD 11)
 
+SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-pthread")
+
 add_library(graphPartition SHARED
   src/partition.cpp
   include/partition.hpp

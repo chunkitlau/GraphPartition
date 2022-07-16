@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgraphPartition.so -o libgraphPartition.so CMakeFiles/graphPartition.dir/src/partition.cpp.o CMakeFiles/graphPartition.dir/src/graph.cpp.o CMakeFiles/graphPartition.dir/src/utils.cpp.o 
+/usr/bin/c++ -fPIC -pthread  -shared -Wl,-soname,libgraphPartition.so -o libgraphPartition.so CMakeFiles/graphPartition.dir/src/partition.cpp.o CMakeFiles/graphPartition.dir/src/graph.cpp.o CMakeFiles/graphPartition.dir/src/utils.cpp.o 

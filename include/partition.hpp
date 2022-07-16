@@ -4,14 +4,18 @@
 #include "graph.hpp"
 #include "utils.hpp"
 
+// infinite
+#define INF 1e9
+
 // K-hop number
 const int k_hop = 1;
 
+// Floating point comparison error
 const double eps = 1e-6;
 
+// log level
 enum log_level_set {off = 0, fatal = 1, error = 2, warn = 3, info = 4, debug = 5, trace = 6};
-
-enum log_level_set log_level = debug;
+enum log_level_set log_level = info;
 
 // Assign block using algorithm 2
 std::vector<Partition> AssignBlock(const std::vector<Block> &blocks, int partition_num, double alpha_div_Ctrain, double beta_div_Cval, double gamma_div_Ctest);

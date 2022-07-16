@@ -1,9 +1,9 @@
 #include "utils.hpp"
 #include "graph.hpp"
 
+// log level
 enum log_level_set {off = 0, fatal = 1, error = 2, warn = 3, info = 4, debug = 5, trace = 6};
-
-enum log_level_set log_level_utils = debug;
+enum log_level_set log_level_utils = info;
 
 // read table from file
 Table ReadTable(const std::string &input_filename) {
@@ -59,29 +59,6 @@ std::vector<std::string> Split(std::string &str, const std::string &pattern) {
   return vector;
 }
 
-// Write metadata to file
-void WriteMetadata(const std::string &output_folder, const std::pair<std::string,std::string > &metadata_header, const std::vector<std::pair<std::string,int> > &metadata) {
-  std::ofstream file; 
-  file.open((output_folder + "/metadata").c_str());
-  file << metadata_header.first << "\t" << metadata_header.second << std::endl;
-  for (auto row: metadata) {
-    file << row.first << "\t" << row.second << std::endl;
-  }
-}
-
-void WritePartitions(const std::string &output_folder, const std::vector<Partition> &partitions) {
-  for (int k = 0; k < partitions.size(); ++k) {
-    std::string part_folder = output_folder + "/part" + std::to_string(k);
-    int isCreate = mkdir(part_folder.c_str(), S_IRUSR | S_IWUSR | S_IXUSR | S_IRWXG | S_IRWXO);
-    WriteTable(part_folder + "/node_table", partitions[k].my_node_table());
-    WriteTable(part_folder + "/edge_table", partitions[k].my_edge_table());
-    WriteArray(part_folder + "/train_table", partitions[k].my_train_array());
-    WriteArray(part_folder + "/val_table", partitions[k].my_val_array());
-    WriteArray(part_folder + "/test_table", partitions[k].my_test_array());
-  }
-  
-}
-
 // write vector to file
 void WriteVector(std::ofstream &file, const std::vector<std::string> &vector) {
   file << vector[0];
@@ -108,5 +85,28 @@ void WriteArray(std::string output_filename, Array array) {
   WriteVector(file, array.my_header());
   for (auto row: array.my_vector()) {
     file << row << std::endl;
+  }
+}
+
+// Write metadata to file
+void WriteMetadata(const std::string &output_folder, const std::pair<std::string,std::string > &metadata_header, const std::vector<std::pair<std::string,int> > &metadata) {
+  std::ofstream file; 
+  file.open((output_folder + "/metadata").c_str());
+  file << metadata_header.first << "\t" << metadata_header.second << std::endl;
+  for (auto row: metadata) {
+    file << row.first << "\t" << row.second << std::endl;
+  }
+}
+
+// Write partitions to file
+void WritePartitions(const std::string &output_folder, const std::vector<Partition> &partitions) {
+  for (int k = 0; k < partitions.size(); ++k) {
+    std::string part_folder = output_folder + "/part" + std::to_string(k);
+    int isCreate = mkdir(part_folder.c_str(), S_IRUSR | S_IWUSR | S_IXUSR | S_IRWXG | S_IRWXO);
+    WriteTable(part_folder + "/node_table", partitions[k].my_node_table());
+    WriteTable(part_folder + "/edge_table", partitions[k].my_edge_table());
+    WriteArray(part_folder + "/train_table", partitions[k].my_train_array());
+    WriteArray(part_folder + "/val_table", partitions[k].my_val_array());
+    WriteArray(part_folder + "/test_table", partitions[k].my_test_array());
   }
 }
